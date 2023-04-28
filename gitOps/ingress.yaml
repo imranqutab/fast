@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name:  dev
+  namespace:  dev
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: fast.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name:  dev
+                port:
+                  number: 6500
+#end
